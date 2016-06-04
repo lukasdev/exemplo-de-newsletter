@@ -21,6 +21,13 @@ $(function(){
                     setTimeout(function(){
                         sendNewsLetter(r.conteudo, r.inicio, r.fim);
                     }, 5000);
+                }else{
+                    $('#enviar').text('Enviar').prop('disabled', false);
+
+                    setTimeout(function(){
+                        $('.status').fadeOut();
+                        $('.status p').html('');
+                    }, 1000);
                 }
             }
         });
@@ -28,6 +35,7 @@ $(function(){
 
     $('#enviar').on('click', function(e){
         e.preventDefault();
+        $(this).prop('disabled', true).text('Aguarde...');
         var conteudo = tinyMCE.get('conteudo').getContent(); //pega o conteudo do mce
         var inicio = 0; //inicia do primeiro e-mail
         var fim = 2; //maximo de 2 emails por post

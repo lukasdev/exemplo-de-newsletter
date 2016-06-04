@@ -1,7 +1,7 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //simula o envio de um e-mail
-        sleep(2);
+        sleep(1);
 
         $total = 10; //total de e-mails  a enviar
 
