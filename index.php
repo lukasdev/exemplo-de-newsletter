@@ -6,8 +6,10 @@
     </head>
 
     <body>
+        <div class="status" style="display:none;">
+        <p></p>
         <progress value="0" max="100"></progress>
-
+        </div>
         <form action="" method="post" name="news">
             <textarea class="text" name="conteudo"></textarea>
             <button id="enviar">Enviar</button>

@@ -11,13 +11,11 @@ $(function(){
             },
             dataType: 'json',
             success: function(r){
-                if(r.concluido == 'sim'){
-                    //se concluiu, para o loop
-                    pararInterval = 1;
-                }else{
+                if(r.concluido == 'nao'){
                     //acha a porcentagem de emails ja enviada
                     var por = Math.round((r.inicio*100)/r.total);
                     //muda a barra de progresso
+                    $('.status').show().find('p').html('<b>'+r.inicio+' de '+r.total+' enviados!</b>');
                     $('progress').attr('value', por);
                     //reinicia o processo após 5 segundos
                     setTimeout(function(){
@@ -27,7 +25,7 @@ $(function(){
             }
         });
     }
-    var pararInterval = 0; //variavel que para a execução
+
     $('#enviar').on('click', function(e){
         e.preventDefault();
         var conteudo = tinyMCE.get('conteudo').getContent(); //pega o conteudo do mce
